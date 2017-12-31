@@ -24,7 +24,6 @@
 DEVICE_PATH := device/xiaomi/jason
 
 # SDClang configuration
-SDCLANG := true
 TARGET_USE_SDCLANG := true
 
 # Bootloader
