@@ -125,7 +125,8 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += \
-    hardware/mokee/mkhw
+    hardware/mokee/mkhw \
+    $(DEVICE_PATH)/mkhw
 BOARD_USES_MOKEE_HARDWARE := true
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/4-0020/input/input1/wake_gesture"
 
