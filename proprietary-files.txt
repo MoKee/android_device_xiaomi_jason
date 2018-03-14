@@ -363,7 +363,7 @@ vendor/lib/libchromatix_jason_s5k3p8sp_sunny_snapshot.so
 vendor/lib/libchromatix_jason_s5k3p8sp_sunny_video.so
 
 # Camera configs
-etc/camera/camera_config.xml
+etc/camera/camera_config.xml|1918a35e2800e7217a8ae1c2c33da9f2c20a2ccb
 etc/camera/jason_imx386_ofilm_chromatix.xml
 etc/camera/jason_imx386_semco_chromatix.xml
 etc/camera/jason_s5k3m3_ofilm_chromatix.xml
@@ -526,8 +526,8 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 
 # Fingerprint sensor
-lib64/hw/fingerprint.fpc.so
-lib64/hw/fingerprint.goodix.so
+lib64/hw/fingerprint.fpc.so:lib64/hw/fingerprint.fpc.sdm660.so
+lib64/hw/fingerprint.goodix.so:lib64/hw/fingerprint.goodix.sdm660.so
 lib64/libgoodixfingerprintd_binder.so
 lib64/libgf_ca.so
 lib64/libgf_hal.so
