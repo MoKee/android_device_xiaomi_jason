@@ -56,7 +56,7 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/jason
-TARGET_KERNEL_CONFIG := lineageos_jason_defconfig
+TARGET_KERNEL_CONFIG := mokee_jason_defconfig
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -178,10 +178,10 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Lineage Hardware
+# MK Hardware
 BOARD_HARDWARE_CLASS += \
-    hardware/lineage/lineagehw \
-    $(DEVICE_PATH)/lineagehw
+    hardware/mokee/mkhw \
+    $(DEVICE_PATH)/mkhw
 
 # Mainfest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
