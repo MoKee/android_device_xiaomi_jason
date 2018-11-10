@@ -26,7 +26,7 @@ $(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.mk.build.vendor_security_patch=2018-07-01
+    ro.mk.build.vendor_security_patch=2018-09-01
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.mk.maintainer=dianlujitao
