@@ -661,8 +661,9 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvqzip.so
 -vendor/lib64/libgpustats.so
 
-# NFC firmware
+# NFC
 vendor/firmware/libpn553_fw.so
+vendor/bin/nqnfcinfo
 
 # Perf
 vendor/bin/energy-awareness
@@ -696,6 +697,9 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/framework/vendor.qti.hardware.alarm-V1.0-java.jar
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
+
+# Power-off charging daemon
+-sbin/charger:sbin/chargeonlymode;rootfs|9b12b1d169608a85aad3641d4cabc539a862f6ef
 
 # Postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -798,6 +802,7 @@ vendor/radio/qcril_database/qcril.db
 # Radio - IMS
 -app/ims/ims.apk
 -app/imssettings/imssettings.apk
+-app/uceShimService/uceShimService.apk
 etc/permissions/com.qualcomm.qti.imscmservice.xml
 etc/permissions/qti-vzw-ims-internal.xml
 framework/com.qualcomm.qti.imscmservice@1.1-java.jar
