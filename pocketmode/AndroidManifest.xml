@@ -35,7 +35,7 @@
 
         <receiver android:name=".Startup" >
             <intent-filter android:priority="99" >
-                <action android:name="mokee.intent.action.INITIALIZE_MOKEE_HARDWARE" />
+                <action android:name="mokee.intent.action.INITIALIZE_MK_HARDWARE" />
             </intent-filter>
         </receiver>
 
