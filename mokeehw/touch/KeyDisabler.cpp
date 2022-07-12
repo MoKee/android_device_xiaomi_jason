@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2019-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,23 @@
 #include <android-base/logging.h>
 #include <android-base/strings.h>
 
-#include "KeySwapper.h"
+#include "KeyDisabler.h"
 
 namespace {
-constexpr const char kControlPath[] = "/sys/touchpanel/reversed_keys";
+constexpr const char kControlPath[] = "/sys/touchpanel/capacitive_keys";
 };  // anonymous namespace
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace touch {
 namespace V1_0 {
 namespace implementation {
 
-KeySwapper::KeySwapper() : has_key_swapper_(!access(kControlPath, R_OK | W_OK)) {}
+KeyDisabler::KeyDisabler() : has_key_disabler_(!access(kControlPath, R_OK | W_OK)) {}
 
-// Methods from ::vendor::lineage::touch::V1_0::IKeySwapper follow.
-Return<bool> KeySwapper::isEnabled() {
-    if (!has_key_swapper_) return false;
+// Methods from ::vendor::mokee::touch::V1_0::IKeyDisabler follow.
+Return<bool> KeyDisabler::isEnabled() {
+    if (!has_key_disabler_) return false;
 
     std::string buf;
     if (!android::base::ReadFileToString(kControlPath, &buf)) {
@@ -42,13 +42,13 @@ Return<bool> KeySwapper::isEnabled() {
         return false;
     }
 
-    return std::stoi(android::base::Trim(buf)) == 1;
+    return std::stoi(android::base::Trim(buf)) == 0;
 }
 
-Return<bool> KeySwapper::setEnabled(bool enabled) {
-    if (!has_key_swapper_) return false;
+Return<bool> KeyDisabler::setEnabled(bool enabled) {
+    if (!has_key_disabler_) return false;
 
-    if (!android::base::WriteStringToFile(std::to_string(enabled), kControlPath)) {
+    if (!android::base::WriteStringToFile((enabled ? "0" : "1"), kControlPath)) {
         LOG(ERROR) << "Failed to write " << kControlPath;
         return false;
     }
@@ -59,5 +59,5 @@ Return<bool> KeySwapper::setEnabled(bool enabled) {
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace touch
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor
